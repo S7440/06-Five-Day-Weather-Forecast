@@ -1,0 +1,30 @@
+:root {
+  --header: #28112B;
+  --text: #F1EDEE;
+  --primary: #453643;
+  --secondary: #5E5D5C;
+  --pizzazz: #51A3A3;
+}
+
+.top-bar {
+  background-color: var(--header);
+  color: var(--text);
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--text);
+}
+
+#city-search {
+  max-width: 500px;
+}
+.input-group-rounded .input-group-field {
+  border-radius: 5000px 0 0 5000px;
+  padding-left: 1rem;
+}
+
+.input-group-rounded .input-group-button .button {
+  border-radius: 0 5000px 5000px 0;
+  font-size: 0.8rem;
+}
