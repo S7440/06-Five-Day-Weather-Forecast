@@ -31,15 +31,13 @@ var projectedCard = document.createElement('section');
     var projectedTempEl = document.createElement('span');
     var projectedHumidityEl = document.querySelector('#projected-humidity');
     var projectedWindSpeedEl = document.querySelector('#projected-wind-speed');
-  
 if (data.ok){
     resultsEl.appendChild(projectedCard);
     projectedCard.setAttribute('id','projected-card');    
     projectedCard.appendChild(projectedContainerEl);
     projectedContainerEl.setAttribute('id', 'projected-container');
-    projectedContainerEl.appendChild('projectedDateEl');
-    projectedDateEl.appendChild('dateEl');
-    dateEl.textContent = `${cityDate}`;
+    projectedContainerEl.appendChild(projectedDateEl);
+    projectedDateEl.textContent = cityDate;
     projectedDateEl.setAttribute('id','projected-date');
     projectedContainerEl.appendChild(projectedIconEl);
     projectedIconEl.setAttribute('id','projected-icon');
@@ -54,9 +52,7 @@ if (data.ok){
     projectedHumidityEl.appendChild(humidity);
     projectedConditionsEl.appendChild(projectedWindSpeedEl);
     projectedWindSpeedEl.setAttribute('id', 'projected-wind-speed');
-    projectedWindSpeedEl.appendChild(windSpeed);}
-
-};
+    projectedWindSpeedEl.appendChild(windSpeed);
 
 
 var inputSubmitHandler = function (event) {
@@ -114,11 +110,11 @@ var getForecast = function (lat, lon) {
 
 submission.addEventListener("click", inputSubmitHandler);
 
-/* need to loop throug 5 times and create a new section each time.
-that section needs the .card class. and id set to day + dayNum
+// need to loop throug 5 times and create a new section each time.
+// that section needs the .card class. and id set to day + dayNum
 
-then, we need to append the city, date, weather icon, humidity, temp, windSpeed
-to the new card. easiest would be to just center/vertical but if I had time to make it nice I'd organize and arrange them.
+// then, we need to append the city, date, weather icon, humidity, temp, windSpeed
+// to the new card. easiest would be to just center/vertical but if I had time to make it nice I'd organize and arrange them.
 
-After testing it looks like we're getting good data, just need to figure out how to print and append.  then verify local storage works.
-*/
+// After testing it looks like we're getting good data, just need to figure out how to print and append.  then verify local storage works.
+
