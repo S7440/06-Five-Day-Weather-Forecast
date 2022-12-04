@@ -12,8 +12,15 @@ var currentHeaderEl = document.querySelector('#current-Header');
   var currentWindSpeedEl = document.querySelector('#current-wind-speed');
 var currentIconEl = document.querySelector('#current-icon');
 
-function displayResults() {
+function displayResults(data) {
 //projected card variables that will run 5 cycles and print off 5 data sets.
+var cityName = data.city.name;
+var cityDate = data.list[3].dt_txt;
+var weatherIcon = data.list[3].weather[0].icon;
+var humidity = data.list[3].main.humidity;
+var temp = data.list[3].main.temp;
+var windSpeed = data.list[3].wind.speed;
+
 var resultsEl = document.querySelector('#results');
 var projectedCard = document.createElement('section');
   var projectedContainerEl = document.createElement('div');
@@ -23,30 +30,29 @@ var projectedCard = document.createElement('section');
     var projectedTempEl = document.createElement('span');
     var projectedHumidityEl = document.querySelector('#projected-humidity');
     var projectedWindSpeedEl = document.querySelector('#projected-wind-speed');
-
-console.log(temp);
-return;
+  
+if (data.ok){
     resultsEl.appendChild(projectedCard);
-    projectedCard.setAttribute('#projected-card');    
+    projectedCard.setAttribute('id','projected-card');    
     projectedCard.appendChild(projectedContainerEl);
-    projectedContainerEl.setAttribute('#projected-container');
+    projectedContainerEl.setAttribute('id', 'projected-container');
     projectedContainerEl.appendChild('projectedDateEl');
-    projectedDateEl.appendChild(cityDate);
-    projectedDateEl.setAttribute('#projected-date');
+    projectedDateEl.textContent(cityDate);
+    projectedDateEl.setAttribute('id','projected-date');
     projectedContainerEl.appendChild(projectedIconEl);
-    projectedIconEl.setAttribute('#projected-icon');
+    projectedIconEl.setAttribute('id','projected-icon');
     projectedIconEl.appendChild(weatherIcon);
     projectedCard.appendChild(projectedConditionsEl);
-    projectedConditionsEl.setAttribute('#projected-conditions');
+    projectedConditionsEl.setAttribute('id','projected-conditions');
     projectedConditionsEl.appendChild(projectedTempEl);
-    projectedTempEl.setAttribute('#projected-temp');
+    projectedTempEl.setAttribute('id','projected-temp');
     projectedTempEl.appendChild(temp);
     projectedConditionsEl.appendChild(projectedHumidityEl);
-    projectedHumidityEl.setAttribute('#projected-humidity');
+    projectedHumidityEl.setAttribute('id','projected-humidity');
     projectedHumidityEl.appendChild(humidity);
     projectedConditionsEl.appendChild(projectedWindSpeedEl);
-    projectedWindSpeedEl.setAttribute('#projected-wind-speed');
-    projectedWindSpeedEl.appendChild(windSpeed);
+    projectedWindSpeedEl.setAttribute('id', 'projected-wind-speed');
+    projectedWindSpeedEl.appendChild(windSpeed);}
 
 };
 
@@ -62,8 +68,8 @@ var inputSubmitHandler = function (event) {
   }
 
   localStorage.setItem("city", cityName);
-  currentForecast.textContent = "";
-  displaySearched(cityName);
+  // currentForecast.textContent = "";
+  // displaySearched(cityName);
 };
 
 var getCityName = function (cityName) {
@@ -97,14 +103,8 @@ var getForecast = function (lat, lon) {
       if (response.ok) {
         response.json().then(function (data) {
           console.log(data);
-          displayResults();
-          var cityName = data.city.name;
-          var cityDate = data.list[3].dt_txt;
-          var weatherIcon = data.list[3].weather[0].icon;
-          var humidity = data.list[3].main.humidity;
-          var temp = data.list[3].main.temp;
-          var windSpeed = data.list[3].wind.speed;
-  
+          displayResults(data);
+
 
           })
         };
