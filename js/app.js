@@ -14,6 +14,8 @@ var currentIconEl = document.querySelector('#current-icon');
 
 function displayResults(data) {
 //projected card variables that will run 5 cycles and print off 5 data sets.
+var i = 6;
+for (i=6; i < 40; i = i+8) {
 var cityName = data.city.name;
 var cityDate = data.list[i].dt_txt;
 var weatherIcon = data.list[i].weather[0].icon;
@@ -31,8 +33,7 @@ var projectedCard = document.createElement('section');
     var projectedHumidityEl = document.createElement('span');
     var projectedWindSpeedEl = document.createElement('span');
     //need to get this to start at 6 and increase by 8
-    var i = 6;
-    for (i=6; i < 100; i = i+8) {
+
     resultsEl.appendChild(projectedCard);
     projectedCard.setAttribute('id','projected-card');    
     projectedCard.appendChild(projectedContainerEl);
