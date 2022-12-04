@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Group 8</title>
+    <title>Da wheter</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
     <script defer src="js/vendor/jquery.js"></script>
@@ -25,7 +25,22 @@
         </div>
       </div>
     </section>
-    <section class="hide" id="results"></section>
+    <section class="hide" id="current-card"><!--container holds current conditions card-->
+      <div id="current-header"><h1 id="city"></h1> <span id="current-date"></span></div><!--container to house city and date.-->
+      <div id="current-conditions-container">
+        <div id="current-conditions"><span id="current-temp"></span><span id="current-humidity"></span><span id="current-wind-speed"></span></div>
+        <div id="current-icon"></div>
+      </div>
+      
+    </section>
+    <section id="results"></section>
+    <section id="projected-card">
+      <div id="projected-container">
+        <div id="projected-date"></div>
+        <div id="projected-icon"></div>
+      </div>
+      <div id="projected-conditions"><span id="projected-temp"></span><span id="projected-humidity"></span><span id="projected-wind-speed"></span></div>
+    </section>
   </main>
 
   </body>

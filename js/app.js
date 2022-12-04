@@ -1,9 +1,35 @@
 $(document).foundation();
+//this will gather the  city searched for.
+var cityInputEl = document.querySelector('#search');
+var citySubmission = document.querySelector('#submission');
+
+//this card will display the current conditions.
+var currentConditionsCard = document.querySelector('#current-card');
+
+var currentHeaderEl = document.querySelector('#current-Header');
+  var currentTempEl = document.querySelector('#current-temp');
+  var currentHumidityEl = document.querySelector('#current-humidity');
+  var currentWindSpeedEl = document.querySelector('#current-wind-speed');
+var currentIconEl = document.querySelector('#current-icon');
 
 
-var cityInputEl = document.querySelector("#search");
-var inputButton = document.querySelector("#submission");
-var fiveDay = document.querySelector("#results");
+//projected card variables that will run 5 cycles and print off 5 data sets.
+var projectedCard = document.createElement('section');
+projectedCard.appendChild('#results');
+projectedCard.setAttribute('#projected-card');
+  var projectedContainerEl = document.createElement('div');
+  projectedContainerEl.appendChild('#projected-card');
+  projectedContainerEl.setAttribute('#projected-container');
+    var projectedDateEl = document.querySelector('div');
+    projectedDateEl.appendChild('#projected-container');
+    projectedDateEl.setAttribute('#projected-date')
+    var projectedIconEl = document.querySelector('#projected-icon');
+  var projectedConditionsEl = document.querySelector('#projected-conditions');
+    var projectedTempEl = document.querySelector('#projected-temp');
+    var projectedHumidityEl = document.querySelector('#projected-humidity');
+    var projectedWindSpeedEl = document.querySelector('#projected-wind-speed')
+
+
 
 
 
@@ -11,9 +37,8 @@ var inputSubmitHandler = function (event) {
   event.preventDefault();
 
   var cityName = cityInputEl.value.trim();
-  console.log(cityName);
   if (cityName) {
-    getCords(cityName);
+    getCityName(cityName);
   } else {
     alert("Please enter a city");
   }
@@ -23,7 +48,7 @@ var inputSubmitHandler = function (event) {
   displaySearched(cityName);
 };
 
-var getCords = function (cityName) {
+var getCityName = function (cityName) {
   var apiUrl =
     "https://api.openweathermap.org/geo/1.0/direct?q=" +
     cityName +
@@ -35,8 +60,6 @@ var getCords = function (cityName) {
         console.log(data);
         var citLat = data[0].lat;
         var citLon = data[0].lon;
-        console.log(citLat);
-        console.log(citLon);
 
         getForecast(citLat, citLon);
       });
@@ -66,33 +89,21 @@ var getForecast = function (lat, lon) {
 
         for (var i = 0; i <5; i ++) {
 
-          let result = document.createElement('section')
-
-          var resultsEl = document.getElementById('results');
-          var oneDay = data.list[i];
-          console.log(oneDay);
-          var cityEl = document.querySelector('.cityEl');
-          var dateEl = document.querySelector('.dateEl');
-          var weatherIconEl = document.querySelector('.weatherIconEl');
-          var humidityEl = document.querySelector('.humidityEl');
-          var tempEl = document.querySelector('tempEl');
-          var windSpeedEl = document.querySelector('.windSpeedEl');
+ 
           
-          resultsEl.children[i].appendChild
-          
-          dayNum++;
         }
       });
     }
   });
 };
 
-inputButton.addEventListener("click", inputSubmitHandler);
+submission.addEventListener("click", inputSubmitHandler);
 
 /* need to loop throug 5 times and create a new section each time.
 that section needs the .card class. and id set to day + dayNum
 
 then, we need to append the city, date, weather icon, humidity, temp, windSpeed
-to the new card. easiest would be to just center/vertical but if I had time to make it nice I'd 
-organize and arrange them.
+to the new card. easiest would be to just center/vertical but if I had time to make it nice I'd organize and arrange them.
 
+After testing it looks like we're getting good data, just need to figure out how to print and append.  then verify local storage works.
+*/
