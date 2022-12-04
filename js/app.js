@@ -25,6 +25,7 @@ var resultsEl = document.querySelector('#results');
 var projectedCard = document.createElement('section');
   var projectedContainerEl = document.createElement('div');
     var projectedDateEl = document.createElement('span');
+    var dateEl =document.createElement('p')
     var projectedIconEl = document.createElement('span');
   var projectedConditionsEl = document.createElement('div');
     var projectedTempEl = document.createElement('span');
@@ -37,7 +38,8 @@ if (data.ok){
     projectedCard.appendChild(projectedContainerEl);
     projectedContainerEl.setAttribute('id', 'projected-container');
     projectedContainerEl.appendChild('projectedDateEl');
-    projectedDateEl.textContent(cityDate);
+    projectedDateEl.appendChild('dateEl');
+    dateEl.textContent = `${cityDate}`;
     projectedDateEl.setAttribute('id','projected-date');
     projectedContainerEl.appendChild(projectedIconEl);
     projectedIconEl.setAttribute('id','projected-icon');
