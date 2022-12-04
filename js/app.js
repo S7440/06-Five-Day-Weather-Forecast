@@ -15,46 +15,47 @@ var currentIconEl = document.querySelector('#current-icon');
 function displayResults(data) {
 //projected card variables that will run 5 cycles and print off 5 data sets.
 var cityName = data.city.name;
-var cityDate = data.list[3].dt_txt;
-var weatherIcon = data.list[3].weather[0].icon;
-var humidity = data.list[3].main.humidity;
-var temp = data.list[3].main.temp;
-var windSpeed = data.list[3].wind.speed;
+var cityDate = data.list[i].dt_txt;
+var weatherIcon = data.list[i].weather[0].icon;
+var humidity = data.list[i].main.humidity;
+var temp = data.list[i].main.temp;
+var windSpeed = data.list[i].wind.speed;
 
 var resultsEl = document.querySelector('#results');
 var projectedCard = document.createElement('section');
   var projectedContainerEl = document.createElement('div');
     var projectedDateEl = document.createElement('span');
-    var dateEl =document.createElement('p')
     var projectedIconEl = document.createElement('span');
   var projectedConditionsEl = document.createElement('div');
     var projectedTempEl = document.createElement('span');
-    var projectedHumidityEl = document.querySelector('#projected-humidity');
-    var projectedWindSpeedEl = document.querySelector('#projected-wind-speed');
-if (data.ok){
+    var projectedHumidityEl = document.createElement('span');
+    var projectedWindSpeedEl = document.createElement('span');
+    //need to get this to start at 6 and increase by 8
+    var i = 6;
+    for (i=6; i < 100; i = i+8) {
     resultsEl.appendChild(projectedCard);
     projectedCard.setAttribute('id','projected-card');    
     projectedCard.appendChild(projectedContainerEl);
     projectedContainerEl.setAttribute('id', 'projected-container');
     projectedContainerEl.appendChild(projectedDateEl);
-    projectedDateEl.textContent = cityDate;
+    projectedDateEl.textContent = cityDate + ' ';
     projectedDateEl.setAttribute('id','projected-date');
     projectedContainerEl.appendChild(projectedIconEl);
     projectedIconEl.setAttribute('id','projected-icon');
-    projectedIconEl.appendChild(weatherIcon);
+    projectedIconEl.textContent = weatherIcon + ' ';
     projectedCard.appendChild(projectedConditionsEl);
     projectedConditionsEl.setAttribute('id','projected-conditions');
     projectedConditionsEl.appendChild(projectedTempEl);
     projectedTempEl.setAttribute('id','projected-temp');
-    projectedTempEl.appendChild(temp);
+    projectedTempEl.textContent = temp + ' ';
     projectedConditionsEl.appendChild(projectedHumidityEl);
     projectedHumidityEl.setAttribute('id','projected-humidity');
-    projectedHumidityEl.appendChild(humidity);
+    projectedHumidityEl.textContent = humidity + ' ';
     projectedConditionsEl.appendChild(projectedWindSpeedEl);
     projectedWindSpeedEl.setAttribute('id', 'projected-wind-speed');
-    projectedWindSpeedEl.appendChild(windSpeed);
-
-
+    projectedWindSpeedEl.textContent = windSpeed + ' ';
+  };
+};
 var inputSubmitHandler = function (event) {
   event.preventDefault();
 
