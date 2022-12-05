@@ -16,31 +16,22 @@
   <header class="top-bar">
     <h1 class="align-center">Sky Guy's Eye on the Sky</h1>
   </header>
-  <main class="grid-container">
-    <section class="grid-x align-center" id="city-search">
+  <main class="row">
+    <section class="column align-self-middle" id="city-search">
       <div class="input-group input-group-rounded">
-        <input id="search" class="input-group-field" type="search">
+        <input id="search" class="input-group-field" type="search" placeholder="Choose your location.">
         <div class="input-group-button">
           <input id="submission" type="submit" class="button secondary" value="Search">
         </div>
       </div>
     </section>
-    <section class="hide" id="current-result"><!--container holds current conditions card-->
-      <div id="current-header"><h1 id="city"></h1> <span id="current-date"></span></div><!--container to house city and date.-->
-      <div id="current-conditions-container">
-        <div id="current-conditions"><span id="current-temp"></span><span id="current-humidity"></span><span id="current-wind-speed"></span></div>
+    <section  id="current-result">
         <div id="current-icon"></div>
       </div>
       
     </section>
     <section id="results"></section>
-    <section id="projected-card">
-      <div id="projected-container">
-        <div id="projected-date"></div>
-        <div id="projected-icon"></div>
-      </div>
-      <div id="projected-conditions"><span id="projected-temp"></span><span id="projected-humidity"></span><span id="projected-wind-speed"></span></div>
-    </section>
+
   </main>
 
   </body>

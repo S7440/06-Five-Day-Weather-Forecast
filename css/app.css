@@ -4,6 +4,8 @@
   --primary: #453643;
   --secondary: #5E5D5C;
   --pizzazz: #51A3A3;
+
+  min-width: 350px;
 }
 
 .top-bar {
@@ -15,9 +17,38 @@ body {
   background-color: var(--primary);
   color: var(--text);
 }
+main {
 
+  max-width: 780px;
+  margin: auto;
+}
 #city-search {
-  max-width: 500px;
+  max-width: 350px;
+  margin-top: 150px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#current-card {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+
+}
+#current-header {
+
+}
+#projected-card {
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 350px;
+}
+#projected-conditions {
+  align-content: center;
+}
+#projected-card {
+
 }
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -28,3 +59,56 @@ body {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
 }
+.card {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  margin-bottom: 1rem;
+  border: 1px solid var(--pizzazz);
+  border-radius: 20px;
+  box-shadow: 20px 20px 50px 10px var(--pizzazz);
+  background: var(--primary);
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  overflow: hidden;
+  color: var(--text); }
+  .card > :last-child {
+    margin-bottom: 0; }
+
+.card-divider {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 0;
+  -webkit-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--text);
+  background: var(--header); }
+  .card-divider > :last-child {
+    margin-bottom: 0; }
+
+.card-section {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+      -ms-flex: 1 0 auto;
+          flex: 1 0 auto;
+  padding: 40px; }
+  .card-section > :last-child {
+    margin-bottom: 0; }
+
+.card-image {
+  min-height: 1px; }

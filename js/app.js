@@ -14,9 +14,11 @@ var currentIcon = data.list[3].weather[0].icon;
 var currentHumidity = data.list[3].main.humidity;
 var currentTemp = data.list[3].main.temp;
 var currentWindSpeed = data.list[3].wind.speed;
+var citySearch = document.querySelector('#city-search');
 var currentResultEl = document.querySelector('#current-result');
   var currentCardEl = document.createElement('div')
 
+  var iconUrl = "http://openweathermap.org/img/w/" + currentIcon + ".png";
 
   var currentHeaderEl = document.createElement('div');
   var cityNameEl = document.createElement('span');
@@ -27,21 +29,25 @@ var currentResultEl = document.querySelector('#current-result');
   var currentTempEl = document.createElement('span');
   var currentHumidityEl = document.createElement('span');
   var currentWindSpeedEl = document.createElement('span');
-var currentIconEl = document.querySelector('#current-icon');
+var currentIconEl = document.createElement('img');
 
 currentResultEl.appendChild(currentCardEl);
+currentCardEl.setAttribute('class', 'card');
 currentCardEl.setAttribute('id','current-card');
 currentCardEl.appendChild(currentHeaderEl);
 currentHeaderEl.setAttribute('id', 'current-header');
 currentHeaderEl.appendChild(cityNameEl);
 cityNameEl.setAttribute('id', 'city-name');
-cityNameEl.textContent =  cityName = ' ';
+currentHeaderEl.setAttribute('class', 'card-divider');
+cityNameEl.textContent =  cityName + ' ';
 currentHeaderEl.appendChild(currentDateEl);
 currentDateEl.textContent = currentDate + ' ';
 currentCardEl.appendChild(currentBodyEl);
 currentBodyEl.setAttribute('id', 'current-body');
+currentBodyEl.setAttribute('class', 'card-section');
 currentBodyEl.appendChild(card1);
 card1.appendChild(currentTempEl);
+card1.setAttribute('class', 'columns small-6');
 currentTempEl.textContent = 'Temp: ' +currentTemp + 'f ';
 card1.appendChild(currentHumidityEl);
 currentHumidityEl.textContent = 'Humidity: '+ currentHumidity + ' ';
@@ -49,7 +55,9 @@ card1.appendChild(currentWindSpeedEl);
 currentWindSpeedEl.textContent = 'Wind Speed: ' + currentWindSpeed + ' ';
 currentBodyEl.appendChild(card2);
 card2.appendChild(currentIconEl);
-currentIconEl.textContent = currentIcon;
+card2.setAttribute('class', 'columns small-6');
+currentIconEl.setAttribute('src', iconUrl);
+citySearch.setAttribute('class', 'hide');
 
 currentResultEl.removeAttribute('class','hide');
 
@@ -60,12 +68,12 @@ var weatherIcon = data.list[i].weather[0].icon;
 var humidity = data.list[i].main.humidity;
 var temp = data.list[i].main.temp;
 var windSpeed = data.list[i].wind.speed;
-
+var iconUrl = "http://openweathermap.org/img/w/" + currentIcon + ".png";
 var resultsEl = document.querySelector('#results');
 var projectedCard = document.createElement('div');
   var projectedContainerEl = document.createElement('div');
     var projectedDateEl = document.createElement('span');
-    var projectedIconEl = document.createElement('span');
+    var projectedIconEl = document.createElement('img');
   var projectedConditionsEl = document.createElement('div');
     var projectedTempEl = document.createElement('span');
     var projectedHumidityEl = document.createElement('span');
@@ -73,17 +81,21 @@ var projectedCard = document.createElement('div');
     //need to get this to start at 6 and increase by 8
 
     resultsEl.appendChild(projectedCard);
-    projectedCard.setAttribute('id','projected-card');    
+    // resultsEl.setAttribute('class', )
+    projectedCard.setAttribute('id','projected-card');
+    projectedCard.setAttribute('class', 'card');    
     projectedCard.appendChild(projectedContainerEl);
     projectedContainerEl.setAttribute('id', 'projected-container');
+    projectedContainerEl.setAttribute('class', 'card-divider');
     projectedContainerEl.appendChild(projectedDateEl);
     projectedDateEl.textContent = cityDate + ' ';
     projectedDateEl.setAttribute('id','projected-date');
     projectedContainerEl.appendChild(projectedIconEl);
     projectedIconEl.setAttribute('id','projected-icon');
-    projectedIconEl.textContent = weatherIcon + ' ';
+    projectedIconEl.setAttribute('src', iconUrl);
     projectedCard.appendChild(projectedConditionsEl);
     projectedConditionsEl.setAttribute('id','projected-conditions');
+    projectedConditionsEl.setAttribute('class', 'card-section');
     projectedConditionsEl.appendChild(projectedTempEl);
     projectedTempEl.setAttribute('id','projected-temp');
     projectedTempEl.textContent = 'Temp: ' + temp + 'f ';
