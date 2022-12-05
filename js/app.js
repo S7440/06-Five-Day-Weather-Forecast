@@ -3,20 +3,58 @@ $(document).foundation();
 var cityInputEl = document.querySelector('#search');
 var citySubmission = document.querySelector('#submission');
 
-//this card will display the current conditions.
-var currentConditionsCard = document.querySelector('#current-card');
 
-var currentHeaderEl = document.querySelector('#current-Header');
-  var currentTempEl = document.querySelector('#current-temp');
-  var currentHumidityEl = document.querySelector('#current-humidity');
-  var currentWindSpeedEl = document.querySelector('#current-wind-speed');
-var currentIconEl = document.querySelector('#current-icon');
 
 function displayResults(data) {
 //projected card variables that will run 5 cycles and print off 5 data sets.
-var i = 6;
-for (i=6; i < 40; i = i+8) {
+//this card will display the current conditions.
 var cityName = data.city.name;
+var currentDate = data.list[3].dt_txt;
+var currentIcon = data.list[3].weather[0].icon;
+var currentHumidity = data.list[3].main.humidity;
+var currentTemp = data.list[3].main.temp;
+var currentWindSpeed = data.list[3].wind.speed;
+var currentResultEl = document.querySelector('#current-result');
+  var currentCardEl = document.createElement('div')
+
+
+  var currentHeaderEl = document.createElement('div');
+  var cityNameEl = document.createElement('span');
+  var currentDateEl = document.createElement('span');
+  var currentBodyEl = document.createElement('div');
+  var card1 = document.createElement('div');
+  var card2 = document.createElement('div');
+  var currentTempEl = document.createElement('span');
+  var currentHumidityEl = document.createElement('span');
+  var currentWindSpeedEl = document.createElement('span');
+var currentIconEl = document.querySelector('#current-icon');
+
+currentResultEl.appendChild(currentCardEl);
+currentCardEl.setAttribute('id','current-card');
+currentCardEl.appendChild(currentHeaderEl);
+currentHeaderEl.setAttribute('id', 'current-header');
+currentHeaderEl.appendChild(cityNameEl);
+cityNameEl.setAttribute('id', 'city-name');
+cityNameEl.textContent =  cityName = ' ';
+currentHeaderEl.appendChild(currentDateEl);
+currentDateEl.textContent = currentDate + ' ';
+currentCardEl.appendChild(currentBodyEl);
+currentBodyEl.setAttribute('id', 'current-body');
+currentBodyEl.appendChild(card1);
+card1.appendChild(currentTempEl);
+currentTempEl.textContent = 'Temp: ' +currentTemp + 'f ';
+card1.appendChild(currentHumidityEl);
+currentHumidityEl.textContent = 'Humidity: '+ currentHumidity + ' ';
+card1.appendChild(currentWindSpeedEl);
+currentWindSpeedEl.textContent = 'Wind Speed: ' + currentWindSpeed + ' ';
+currentBodyEl.appendChild(card2);
+card2.appendChild(currentIconEl);
+currentIconEl.textContent = currentIcon;
+
+currentResultEl.removeAttribute('class','hide');
+
+for (i=3; i < 40; i = i+8) {
+
 var cityDate = data.list[i].dt_txt;
 var weatherIcon = data.list[i].weather[0].icon;
 var humidity = data.list[i].main.humidity;
@@ -24,7 +62,7 @@ var temp = data.list[i].main.temp;
 var windSpeed = data.list[i].wind.speed;
 
 var resultsEl = document.querySelector('#results');
-var projectedCard = document.createElement('section');
+var projectedCard = document.createElement('div');
   var projectedContainerEl = document.createElement('div');
     var projectedDateEl = document.createElement('span');
     var projectedIconEl = document.createElement('span');
@@ -48,13 +86,13 @@ var projectedCard = document.createElement('section');
     projectedConditionsEl.setAttribute('id','projected-conditions');
     projectedConditionsEl.appendChild(projectedTempEl);
     projectedTempEl.setAttribute('id','projected-temp');
-    projectedTempEl.textContent = temp + ' ';
+    projectedTempEl.textContent = 'Temp: ' + temp + 'f ';
     projectedConditionsEl.appendChild(projectedHumidityEl);
     projectedHumidityEl.setAttribute('id','projected-humidity');
-    projectedHumidityEl.textContent = humidity + ' ';
+    projectedHumidityEl.textContent = 'Humidity: '+ humidity + ' ';
     projectedConditionsEl.appendChild(projectedWindSpeedEl);
     projectedWindSpeedEl.setAttribute('id', 'projected-wind-speed');
-    projectedWindSpeedEl.textContent = windSpeed + ' ';
+    projectedWindSpeedEl.textContent = 'Wind Speed: ' + windSpeed + ' ';
   };
 };
 var inputSubmitHandler = function (event) {
