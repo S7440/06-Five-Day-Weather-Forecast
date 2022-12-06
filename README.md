@@ -17,9 +17,9 @@ If I had more time I could have also included an option to include history by ap
 Enter a City in the Input.
 
 
-    ```md
-    ![alt text](assets\imgs\Step-one.png)
-    ```
+```md
+![alt text](assets\imgs\Step-one.png)
+```
 
 ## Credits
 
