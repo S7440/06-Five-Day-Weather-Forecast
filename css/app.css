@@ -56,8 +56,13 @@ main {
 #projected-card {
 
 }
-
-
+#reset {
+  margin: ;
+}
+.round {
+  border-radius: 20px;
+  min-width: 350px;
+}
 
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
@@ -104,6 +109,7 @@ main {
       -ms-flex: 0 1 auto;
           flex: 0 1 auto;
   justify-content: space-between;
+  align-content: center;
   padding: 1rem;
   color: var(--text);
   background: var(--header); }

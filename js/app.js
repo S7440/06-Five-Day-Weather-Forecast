@@ -24,7 +24,7 @@ var currentResultEl = document.querySelector('#current-result');
   var iconUrl = "http://openweathermap.org/img/w/" + currentIcon + ".png";
   var breaker = document.createElement('br')
   var currentHeaderEl = document.createElement('div');
-  var cityNameEl = document.createElement('span');
+  var cityNameEl = document.createElement('h2');
   var currentDateEl = document.createElement('span');
   var currentBodyEl = document.createElement('div');
   var card1 = document.createElement('ul');
@@ -71,7 +71,6 @@ currentWindSpeedEl.textContent = 'Wind Speed: ' + currentWindSpeed;
 
 
 
-currentResultEl.removeAttribute('class','hide');
 
 for (i=3; i < 40; i = i+8) {
 
@@ -85,7 +84,7 @@ var iconUrl = "http://openweathermap.org/img/w/" + weatherIcon + ".png";
 var resultsEl = document.querySelector('#results');
 var projectedCard = document.createElement('div');
   var projectedContainerEl = document.createElement('div');
-    var projectedDateEl = document.createElement('span');
+    var projectedDateEl = document.createElement('h3');
     var projectedIconEl = document.createElement('img');
   var projectedConditionsEl = document.createElement('ul');
     var projectedTempEl = document.createElement('li');
@@ -95,7 +94,6 @@ var projectedCard = document.createElement('div');
     //need to get this to start at 6 and increase by 8
 
     resultsEl.appendChild(projectedCard);
-    // resultsEl.setAttribute('class', )
     projectedCard.setAttribute('id','projected-card');
     projectedCard.setAttribute('class', 'card');    
     projectedCard.appendChild(projectedContainerEl);
@@ -122,6 +120,16 @@ var projectedCard = document.createElement('div');
     projectedWindSpeedEl.setAttribute('id', 'projected-wind-speed');
     projectedWindSpeedEl.textContent = 'Wind Speed: ' + windSpeed + ' ';
   };
+
+  var reset = document.querySelector('#reset');
+  var resetBtn = document.createElement('button');
+
+  reset.appendChild(resetBtn);
+  resetBtn.textContent = 'Reset';
+  resetBtn.setAttribute('class', 'button round');
+  resetBtn.setAttribute('type', 'button');
+  resetBtn.setAttribute('onClick', 'window.location.reload()');
+
 };
 var inputSubmitHandler = function (event) {
   event.preventDefault();
@@ -134,8 +142,7 @@ var inputSubmitHandler = function (event) {
   }
 
   localStorage.setItem("city", cityName);
-  currentForecast.textContent = "";
-  displaySearched(cityName);
+
 };
 
 var getCityName = function (cityName) {
@@ -176,9 +183,7 @@ var getForecast = function (lat, lon) {
         };
   });};
 
-function displaySearched(cityName) {
 
-}
 submission.addEventListener("click", inputSubmitHandler);
 
 // need to loop throug 5 times and create a new section each time.
