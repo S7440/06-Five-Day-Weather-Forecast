@@ -16,7 +16,7 @@ If I had more time I could have also included an option to include history by ap
 
 Enter a City in the Input.
 
-![alt text](assets\imgs\Step-one.png)
+![Enter info in input](assets\imgs\Step-one.png)
 
 ## Credits
 
