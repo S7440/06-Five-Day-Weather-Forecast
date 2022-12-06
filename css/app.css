@@ -18,9 +18,10 @@ body {
   color: var(--text);
 }
 main {
-
+  max-height: auto;
   max-width: 780px;
   margin: auto;
+  min-height: auto;
 }
 #city-search {
   max-width: 350px;
@@ -32,17 +33,22 @@ main {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 350px;
+  max-width: 700px;
 
 }
 #current-header {
 
 }
+#projected-container {
+  justify-content: space-between;
+  list-style: none;
+  text-align: center;
+}
 #projected-card {
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 350px;
+  max-width: 700px;
 }
 #projected-conditions {
   align-content: center;
@@ -50,6 +56,9 @@ main {
 #projected-card {
 
 }
+
+
+
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
@@ -106,9 +115,68 @@ main {
   -webkit-flex: 1 0 auto;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  padding: 40px; }
+  padding: 10%; 
+text-align: center;
+list-style: none;
+}
   .card-section > :last-child {
     margin-bottom: 0; }
 
 .card-image {
   min-height: 1px; }
+
+
+  .responsive-blog-footer {
+    background: var(--secondary);
+    padding: 3rem 3rem;
+    color: var(--text);
+    margin-top: 25%;
+  }
+  
+  @media screen and (max-width: 39.9375em) {
+    .responsive-blog-footer h4 {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .responsive-blog-footer p {
+    color: var(--text);
+  }
+  
+  .responsive-blog-footer .mailing-list {
+    margin-bottom: 1.5rem;
+  }
+  
+  .responsive-blog-footer .mailing-container {
+    margin-bottom: 2rem;
+  }
+  
+  .responsive-blog-footer .about-section, .responsive-blog-footer .tag-section {
+    margin-bottom: 2rem;
+  }
+  
+  .responsive-blog-footer .about-section a, .responsive-blog-footer .tag-section a {
+    color: var(--pizzazz);
+  }
+  
+  .responsive-blog-footer .subscribe-button {
+    background-color: var(--pizzazz);
+    color: var(--text);
+  }
+  
+  .responsive-blog-footer .subscribe-button:hover {
+    background-color: var(--header);
+    transition: color 0.3s ease-in;
+  }
+  
+  .responsive-blog-footer .fa-chevron-circle-up {
+    font-size: 3rem;
+    color: #8a8a8a;
+  }
+  
+  .responsive-blog-footer .fa-chevron-circle-up:hover {
+    color: #b0b0b0;
+    transition: color 0.3s ease-in;
+  }
+  
+  

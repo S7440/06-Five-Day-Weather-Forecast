@@ -13,9 +13,49 @@
     <script defer src="js/app.js"></script>
   </head>
   <body>
-  <header class="top-bar">
-    <h1 class="align-center">Sky Guy's Eye on the Sky</h1>
-  </header>
+<header>
+  <div data-sticky-container>
+    <div data-sticky data-options="marginTop:0;">
+  
+      <div class="title-bar" data-responsive-toggle="example-menu" data-hide-for="medium">
+        <button class="menu-icon" type="button" data-toggle="example-menu"></button>
+        <div class="title-bar-title">Menu</div>
+      </div>
+  
+      <div class="top-bar" id="example-menu">
+        <ul class="vertical medium-horizontal dropdown menu" data-responsive-menu="accordion medium-dropdown">
+          <li class="menu-text">Site Title</li>
+          <li>
+            <a href="#"><i class="fa fa-home title-bar-logo"></i></a>
+            <ul class="menu vertical nested">
+              <li><a href="#">One</a></li>
+              <li><a href="#">Two</a></li>
+
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+  
+    </div>
+  </div>
+  
+  
+</header>
+    <!-- <div class="mobile-nav-bar top-bar">
+      <div class="title-bar-left">
+        <button class="menu-icon" type="button"></button>
+      </div>
+      <div class="title-bar-center">
+        <span class="title-bar-text"><h1 class="align-center">Sky Guy's Eye on the Sky</h1></span>
+      </div>
+      <div class="title-bar-right">
+        <span class="title-bar-text"><img src="assets\imgs\received_473730827922443.jpg" width="50px" height="50px"></span>
+        <span class="title-bar-text"><a href="#"><i class="fa fa-home title-bar-logo"></i></a></span>
+      </div>
+    </div> -->
+    
+    
   <main class="row">
     <section class="column align-self-middle" id="city-search">
       <div class="input-group input-group-rounded">
@@ -33,6 +73,43 @@
     <section id="results"></section>
 
   </main>
+  <footer class="responsive-blog-footer">
+    <div class="row">
+      <div class="medium-8 columns small-order-2 medium-order-1 about-container">
+        <div class="row">
+          <div class="hide-for-small-only medium-4 columns about-section">
+
+          </div>
+          <div class="medium-8 columns about-section">
+            <h4>Daily Poetry</h4>
+            <p>The fistic world was dull and weary,
+              But with a champ like Liston, things had to be dreary.
+              Then someone with color and someone with dash,
+              Brought fight fans a-runnin’ with plenty of cash.
+              For I am the man this poem is about,
+              The next champ of the world, there isn’t a doubt.
+              I am the greatest!</p>
+              <p><em><strong>~Cassius Clay</strong></em></p>
+            <a href="https://formalverse.com/2020/11/14/odd-poem-i-am-the-greatest-by-cassius-clay/" target="_blank" rel='noopener noreferrer'>Read More</a>
+          </div>
+        </div>
+      </div>
+      <div class="small-12 medium-4 columns small-order-1 medium-order-2 mailing-container">
+        <h4 class="mailing-list">back to the portfolio</h4>
+        <a class="button expanded subscribe-button" href="#">return</a>
+      </div>
+    </div>
+    
+    <div class="row columns flex-container align-justify">
+       <p> all rights reserved</p>
+      <div class="up-arrow">
+        <a href="#top"><i class="fa fa-chevron-circle-up" aria-hidden="true"></i></a>
+      </div>
+    </div>
+  </footer>
+    
+  </header>
+  
 
   </body>
 </html>
